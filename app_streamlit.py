@@ -9,12 +9,11 @@ import os
 # Load YOLO model
 model = YOLO("trainedmodel.pt")
 
-st.title("🚦 Road Sign Detection ")
-st.write("Upload an image or video to detect road signs using YOLOv8.")
+st.title("🚦 Road Sign Detection")
+st.write("Upload an image, video, or use your webcam to detect road signs using YOLOv8.")
 
 # Image Upload
 st.header("Image Detection")
-
 uploaded_image = st.file_uploader("Choose an Image", type=['jpg', 'jpeg', 'png'])
 
 if uploaded_image is not None:
@@ -28,7 +27,6 @@ if uploaded_image is not None:
 
 # Video Upload
 st.header("Video Detection")
-
 uploaded_video = st.file_uploader("Choose a Video", type=['mp4', 'avi', 'mov'])
 
 if uploaded_video is not None:
@@ -52,3 +50,30 @@ if uploaded_video is not None:
 
     cap.release()
     os.remove(tfile.name)
+
+# Webcam Detection
+st.header("Webcam Detection")
+run_webcam = st.checkbox("Start Webcam")
+
+if run_webcam:
+    cap = cv2.VideoCapture(0)
+    stframe = st.empty()
+
+    while run_webcam:
+        ret, frame = cap.read()
+        if not ret:
+            st.warning("Failed to access webcam.")
+            break
+
+        frame = cv2.resize(frame, (640, 360))
+        results = model(frame)
+        annotated = results[0].plot()
+        annotated_rgb = cv2.cvtColor(annotated, cv2.COLOR_BGR2RGB)
+
+        stframe.image(annotated_rgb, channels="RGB", use_container_width=True)
+
+        # To stop the webcam, user unchecks the checkbox (which reruns the script)
+        run_webcam = st.checkbox("Start Webcam", value=True)
+
+    cap.release()
+    stframe.empty()
