@@ -6,7 +6,7 @@ from ultralytics import YOLO
 import threading
 
 # Load YOLOv8 model
-model = YOLO("trainedmodel.pt")
+model = YOLO("trainedmodel.pt")  # Make sure this model file exists in the folder
 
 # Global state
 cap = None
@@ -49,7 +49,7 @@ def show_frame():
         # Convert to Tkinter format
         annotated_rgb = cv2.cvtColor(annotated, cv2.COLOR_BGR2RGB)
         img = Image.fromarray(annotated_rgb)
-        imgtk = ImageTk.PhotoImage(image=img)
+        imgtk = ImageTk.PhotoImage(image=img, master=root)  # <-- FIXED
 
         # Display in label
         display_label.imgtk = imgtk
@@ -93,7 +93,7 @@ def browse_image():
     annotated = results[0].plot()
     annotated_rgb = cv2.cvtColor(annotated, cv2.COLOR_BGR2RGB)
     img = Image.fromarray(annotated_rgb)
-    imgtk = ImageTk.PhotoImage(image=img)
+    imgtk = ImageTk.PhotoImage(image=img, master=root)  # <-- FIXED
 
     display_label.imgtk = imgtk
     display_label.configure(image=imgtk)
