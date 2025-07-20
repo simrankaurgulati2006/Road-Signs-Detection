@@ -1,28 +1,39 @@
-📝 Project Description
-Road Signs Detection is a Machine Learning and Computer Vision project that detects and classifies traffic signs from images and videos in real-time. This project is useful for autonomous vehicles, driver assistance systems, and road safety analytics.
+# 🚦 Road Signs Detection App
 
-The system leverages a pre-trained ML model and OpenCV to recognize various road signs like:
+A real-time **Road Signs Detection System** using **Streamlit** and **OpenCV**.  
+This app can detect and classify various road signs from **images, videos, or webcam feed**.
 
-🚫 No Entry
+---
 
-🛑 Stop Sign
+## 🗂️ Features
 
-🚸 Pedestrian Crossing
+- Real-time **road sign detection**  
+- **Webcam integration** using Streamlit  
+- Upload and process **images/videos**  
+- **Interactive visualization** of detections  
+- Simple and **user-friendly interface**
 
-⚠️ Warning Signs
+---
+## 📦 Installation
 
-🚦 Speed Limits
+1. **Clone the repository**
 
-…and more!
+git clone https://github.com/your-username/Road-Signs-Detection.git
+cd Road-Signs-Detection
+Install dependencies
 
-🧠 Features
-✅ Real-Time Traffic Sign Detection
 
-✅ Trained ML Model and YOLOv8 usage
 
-✅ OpenCV for Image Processing
-
-✅ Streamlit Frontend for User Interaction
-
-✅ Easy to Deploy and Extend
-
+📁 ##  Project Structure
+bash
+Copy
+Edit
+Road-Signs-Detection/
+│
+├── app.py               # Streamlit web app
+├── haar_face.xml         # Haar cascade (if used)
+├── model/                # ML models (if any)
+├── utils/                # Utility functions
+├── images/               # Sample images
+├── requirements.txt      # Python dependencies
+└── README.md
