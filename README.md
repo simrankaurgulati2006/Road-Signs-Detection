@@ -14,6 +14,10 @@ This app can detect and classify various road signs from **images, videos, or we
 - Simple and **user-friendly interface**
 
 ---
+
+## Live Website 
+[Visit my project](https://road-signs-detection-simran-kaur.streamlit.app/)
+
 ## 📦 Installation
 
 1. **Clone the repository**
@@ -30,10 +34,18 @@ Copy
 Edit
 Road-Signs-Detection/
 │
-├── app.py               # Streamlit web app
-├── haar_face.xml         # Haar cascade (if used)
-├── model/                # ML models (if any)
-├── utils/                # Utility functions
-├── images/               # Sample images
-├── requirements.txt      # Python dependencies
+├── app.py       
+
+├── haar_face.xml     
+
+├── model/                
+
+├── utils/               
+
+├── images/              
+
+├── requirements.txt     
+
 └── README.md
+
+
